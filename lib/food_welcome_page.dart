@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_project_app/details_screen.dart';
 import 'package:food_project_app/profile_page.dart';
 
+import 'details_screen.dart';
 import 'favorite_page.dart';
 
 class WelcomePage extends StatefulWidget {
