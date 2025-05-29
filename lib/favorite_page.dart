@@ -6,8 +6,7 @@ class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-     /* bottomNavigationBar: BottomNavigationBar(
+      /* bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: const Color(0xff388e3c),
         unselectedItemColor: Colors.grey,
         items: const [
@@ -16,17 +15,18 @@ class FavoritePage extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ), */
-
       appBar: AppBar(title: const Text('Favorites')),
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [
           Card(
             elevation: 1,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/Egg roll.jpeg'),
+                backgroundImage: AssetImage('asset/Egg roll.jpeg'),
               ),
               title: Text('Jollof Rice'),
               subtitle: Text(
@@ -38,8 +38,6 @@ class FavoritePage extends StatelessWidget {
           ),
         ],
       ),
-
     );
-
   }
 }
