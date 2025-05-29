@@ -41,13 +41,13 @@ class _MyHomeState extends State<MyHome> {
       backgroundColor: Colors.green.shade700,
       body: Center(
         child: Text(
-          "CRAVES",
+          "CRAVINGS",
           style: TextStyle(
             fontSize: 35,
             fontWeight: FontWeight.bold,
             color: Colors.white,
             letterSpacing: 1.6,
-            fontFamily: " Arial",
+            fontFamily: "Arial",
           ),
         ),
       ),
