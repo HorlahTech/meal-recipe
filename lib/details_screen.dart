@@ -34,14 +34,18 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Container(
                   height: 400,
-                  width: double.infinity,
+                  width: double.maxFinite,
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(15),
+                      bottom: Radius.circular(15),
                     ),
                   ),
-                  child: Image.asset('asset/jollof.png'),
+                  child: Image.asset(
+                    'asset/nija jollof.jpeg',
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(height: 15),
                 Text(
