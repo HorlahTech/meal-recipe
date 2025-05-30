@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_project_app/profile_page.dart';
 
+import 'details_screen.dart';
 import 'favorite_page.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -191,10 +192,7 @@ class FoodClass extends StatelessWidget {
                 top: Radius.circular(16),
               ),
             ),
-            child: Image.asset(
-              imagepath,
-              fit: BoxFit.cover, // Makes image fill the space
-            ),
+            child: Image.asset(imagepath, fit: BoxFit.cover),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -215,10 +213,10 @@ class FoodClass extends StatelessWidget {
                     backgroundColor: Colors.green.shade700,
                   ),
                   onPressed: () {
-                    //Navigator.push(
-                    // context,
-                    // MaterialPageRoute(
-                    // builder: (context) => ThirdScreen()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
