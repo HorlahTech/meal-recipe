@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_project_app/details_screen.dart';
+import 'package:food_project_app/food_welcome_page.dart';
+import 'package:food_project_app/forget_password_page.dart';
 import 'package:food_project_app/sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -76,7 +77,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PassPage()),
+                        );
+                      },
                       child: Text(
                         "forget password",
                         style: TextStyle(
@@ -93,7 +99,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => WelcomePage(),
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(

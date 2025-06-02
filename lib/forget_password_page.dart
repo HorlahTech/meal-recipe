@@ -25,7 +25,9 @@ class _PassPageState extends State<PassPage> {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         elevation: 0,
       ),
@@ -60,24 +62,8 @@ class _PassPageState extends State<PassPage> {
                 _otpBox(otp4),
               ],
             ),
-            SizedBox(height: 30),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    'Enter the 4 digit code that was sent to',
-                    style: TextStyle(color: Colors.black54),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    '@ayodeleblessing@mail.com',
-                    style: TextStyle(color: Colors.green.shade700),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 30,),
+
+            SizedBox(height: 60,),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

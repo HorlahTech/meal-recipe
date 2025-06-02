@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_project_app/profile_page.dart';
+
+import 'details_screen.dart';
 import 'favorite_page.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -32,7 +34,10 @@ class _WelcomePageState extends State<WelcomePage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorite'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
@@ -104,9 +109,13 @@ class _WelcomePageState extends State<WelcomePage> {
               const SizedBox(height: 40),
               Row(
                 children: const [
-                  Text("Food",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.green)),
+                  Text(
+                    "Food",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
                   SizedBox(width: 16),
                   Text("Fruits", style: TextStyle(color: Colors.grey)),
                   SizedBox(width: 16),
@@ -115,14 +124,37 @@ class _WelcomePageState extends State<WelcomePage> {
                   Text("Grocery", style: TextStyle(color: Colors.grey)),
                 ],
               ),
-              SizedBox(height: 45,),
-              FoodClass(imagepath: "assets/nija jollof.jpeg", Foodname: "Jollof Rice", Discription: "The Amazing Nija Jollof"),
-              FoodClass(imagepath: "assets/Egg roll.jpeg", Foodname: "Egg Roll", Discription: "Crunch and delicious egg roll"),
-              FoodClass(imagepath: "assets/Making Egusi.jpeg", Foodname: "Egusi/Semo", Discription: "Discription"),
-              FoodClass(imagepath: "assets/moi moi.jpeg", Foodname: "Moi-Moi", Discription: "Discription"),
-              FoodClass(imagepath: "assets/plantain.jpeg", Foodname: "Plantain/Fried Egg", Discription: "Discription"),
-              FoodClass(imagepath: "assets/potatoes.jpeg", Foodname: "Sweet Potatoes", Discription: "Discription")
-
+              SizedBox(height: 45),
+              FoodClass(
+                imagepath: "asset/nija jollof.jpeg",
+                Foodname: "Jollof Rice",
+                Discription: "The Amazing Nija Jollof",
+              ),
+              FoodClass(
+                imagepath: "asset/Egg roll.jpeg",
+                Foodname: "Egg Roll",
+                Discription: "Crunch and delicious egg roll",
+              ),
+              FoodClass(
+                imagepath: "asset/Making Egusi.jpeg",
+                Foodname: "Egusi/Semo",
+                Discription: "Discription",
+              ),
+              FoodClass(
+                imagepath: "asset/moi moi.jpeg",
+                Foodname: "Moi-Moi",
+                Discription: "Discription",
+              ),
+              FoodClass(
+                imagepath: "asset/plantain.jpeg",
+                Foodname: "Plantain/Fried Egg",
+                Discription: "Discription",
+              ),
+              FoodClass(
+                imagepath: "asset/potatoes.jpeg",
+                Foodname: "Sweet Potatoes",
+                Discription: "Discription",
+              ),
             ],
           ),
         ),
@@ -130,7 +162,8 @@ class _WelcomePageState extends State<WelcomePage> {
     );
   }
 }
-class FoodClass extends StatelessWidget{
+
+class FoodClass extends StatelessWidget {
   final String imagepath;
   final String Foodname;
   final String Discription;
@@ -140,8 +173,8 @@ class FoodClass extends StatelessWidget{
     required this.imagepath,
     required this.Foodname,
     required this.Discription,
-   // required this.onpressed
-}) : super(key: key);
+    // required this.onpressed
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -155,12 +188,11 @@ class FoodClass extends StatelessWidget{
             width: double.infinity,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(16),
+              ),
             ),
-            child: Image.asset(
-              imagepath,
-              fit: BoxFit.cover, // Makes image fill the space
-            ),
+            child: Image.asset(imagepath, fit: BoxFit.cover),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -172,21 +204,19 @@ class FoodClass extends StatelessWidget{
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
-                Text(
-                  Discription,
-                  style: TextStyle(color: Colors.grey),
-                ),
+                Text(Discription, style: TextStyle(color: Colors.grey)),
 
-                SizedBox(height: 15,),
+                SizedBox(height: 15),
 
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green.shade700),
+                    backgroundColor: Colors.green.shade700,
+                  ),
                   onPressed: () {
-                    //Navigator.push(
-                    // context,
-                    // MaterialPageRoute(
-                    // builder: (context) => ThirdScreen()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,7 +225,7 @@ class FoodClass extends StatelessWidget{
                         "How to prepare",
                         style: TextStyle(color: Colors.white),
                       ),
-                      Icon(Icons.ondemand_video_rounded, color: Colors.white,),
+                      Icon(Icons.ondemand_video_rounded, color: Colors.white),
                     ],
                   ),
                 ),

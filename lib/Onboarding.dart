@@ -29,7 +29,7 @@ class _OnboardingState extends State<Onboarding> {
                     style: TextStyle(fontSize: 27, color: Colors.white),
                   ),
                   Text(
-                    'CraveS',
+                    'CravingS',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_project_app/details_screen.dart';
+import 'package:food_project_app/food_welcome_page.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -107,7 +107,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => WelcomePage(),
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
