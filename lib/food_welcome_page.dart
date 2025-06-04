@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_project_app/models/allmeals_model.dart';
 import 'package:food_project_app/profile_page.dart';
 
 import 'details_screen.dart';
@@ -12,6 +13,12 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  AllMealRecipeModel? allMealRecipeModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
