@@ -22,7 +22,13 @@ class _OnboardingState extends State<Onboarding> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: Image.asset("asset/fooding.png", height: 400)),
+                  Center(
+                    child: Image.asset(
+                      "asset/fooding.png",
+                      fit: BoxFit.cover,
+                      height: 400,
+                    ),
+                  ),
                   SizedBox(height: 25),
                   Text(
                     "Welcome to",
