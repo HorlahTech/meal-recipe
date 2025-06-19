@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_project_app/food_welcome_page.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
-
+  const SignUpScreen({super.key, required this.id});
+  final int id;
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -108,7 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => WelcomePage(),
+                            builder: (context) => WelcomePage(id: widget.id),
                           ),
                         );
                       },

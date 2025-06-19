@@ -1,36 +1,34 @@
 import 'dart:convert';
 
-import 'ameals_model.dart';
-
-class AllMealRecipeModel {
+class AMealRecipeModel {
   final int? statusCode;
-  final Data? data;
+  final AmealModel? data;
   final String? message;
   final bool? success;
 
-  AllMealRecipeModel({this.statusCode, this.data, this.message, this.success});
+  AMealRecipeModel({this.statusCode, this.data, this.message, this.success});
 
-  AllMealRecipeModel copyWith({
+  AMealRecipeModel copyWith({
     int? statusCode,
-    Data? data,
+    AmealModel? data,
     String? message,
     bool? success,
-  }) => AllMealRecipeModel(
+  }) => AMealRecipeModel(
     statusCode: statusCode ?? this.statusCode,
     data: data ?? this.data,
     message: message ?? this.message,
     success: success ?? this.success,
   );
 
-  factory AllMealRecipeModel.fromRawJson(String str) =>
-      AllMealRecipeModel.fromJson(json.decode(str));
+  factory AMealRecipeModel.fromRawJson(String str) =>
+      AMealRecipeModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory AllMealRecipeModel.fromJson(Map<String, dynamic> json) =>
-      AllMealRecipeModel(
+  factory AMealRecipeModel.fromJson(Map<String, dynamic> json) =>
+      AMealRecipeModel(
         statusCode: json["statusCode"],
-        data: json["data"] == null ? null : Data.fromJson(json["data"]),
+        data: json["data"] == null ? null : AmealModel.fromJson(json["data"]),
         message: json["message"],
         success: json["success"],
       );
@@ -43,83 +41,7 @@ class AllMealRecipeModel {
   };
 }
 
-class Data {
-  final int? page;
-  final int? limit;
-  final int? totalPages;
-  final bool? previousPage;
-  final bool? nextPage;
-  final int? totalItems;
-  final int? currentPageItems;
-  final List<AmealModel>? data;
-
-  Data({
-    this.page,
-    this.limit,
-    this.totalPages,
-    this.previousPage,
-    this.nextPage,
-    this.totalItems,
-    this.currentPageItems,
-    this.data,
-  });
-
-  Data copyWith({
-    int? page,
-    int? limit,
-    int? totalPages,
-    bool? previousPage,
-    bool? nextPage,
-    int? totalItems,
-    int? currentPageItems,
-    List<AmealModel>? data,
-  }) => Data(
-    page: page ?? this.page,
-    limit: limit ?? this.limit,
-    totalPages: totalPages ?? this.totalPages,
-    previousPage: previousPage ?? this.previousPage,
-    nextPage: nextPage ?? this.nextPage,
-    totalItems: totalItems ?? this.totalItems,
-    currentPageItems: currentPageItems ?? this.currentPageItems,
-    data: data ?? this.data,
-  );
-
-  factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-    page: json["page"],
-    limit: json["limit"],
-    totalPages: json["totalPages"],
-    previousPage: json["previousPage"],
-    nextPage: json["nextPage"],
-    totalItems: json["totalItems"],
-    currentPageItems: json["currentPageItems"],
-    data:
-        json["data"] == null
-            ? []
-            : List<AmealModel>.from(
-              json["data"]!.map((x) => AmealModel.fromJson(x)),
-            ),
-  );
-
-  get length => null;
-
-  Map<String, dynamic> toJson() => {
-    "page": page,
-    "limit": limit,
-    "totalPages": totalPages,
-    "previousPage": previousPage,
-    "nextPage": nextPage,
-    "totalItems": totalItems,
-    "currentPageItems": currentPageItems,
-    "data":
-        data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
-  };
-}
-
-class Datum {
+class AmealModel {
   final String? idMeal;
   final String? strMeal;
   final dynamic strDrinkAlternate;
@@ -175,7 +97,7 @@ class Datum {
   final dynamic dateModified;
   final int? id;
 
-  Datum({
+  AmealModel({
     this.idMeal,
     this.strMeal,
     this.strDrinkAlternate,
@@ -232,7 +154,7 @@ class Datum {
     this.id,
   });
 
-  Datum copyWith({
+  AmealModel copyWith({
     String? idMeal,
     String? strMeal,
     dynamic strDrinkAlternate,
@@ -287,7 +209,7 @@ class Datum {
     dynamic strCreativeCommonsConfirmed,
     dynamic dateModified,
     int? id,
-  }) => Datum(
+  }) => AmealModel(
     idMeal: idMeal ?? this.idMeal,
     strMeal: strMeal ?? this.strMeal,
     strDrinkAlternate: strDrinkAlternate ?? this.strDrinkAlternate,
@@ -345,11 +267,12 @@ class Datum {
     id: id ?? this.id,
   );
 
-  factory Datum.fromRawJson(String str) => Datum.fromJson(json.decode(str));
+  factory AmealModel.fromRawJson(String str) =>
+      AmealModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory AmealModel.fromJson(Map<String, dynamic> json) => AmealModel(
     idMeal: json["idMeal"],
     strMeal: json["strMeal"],
     strDrinkAlternate: json["strDrinkAlternate"],

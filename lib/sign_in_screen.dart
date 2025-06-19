@@ -4,8 +4,8 @@ import 'package:food_project_app/forget_password_page.dart';
 import 'package:food_project_app/sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
-
+  const SignInScreen({super.key, required this.id});
+  final int id;
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
@@ -80,7 +80,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PassPage()),
+                          MaterialPageRoute(
+                            builder: (context) => PassPage(id: widget.id),
+                          ),
                         );
                       },
                       child: Text(
@@ -100,7 +102,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => WelcomePage(),
+                            builder: (context) => WelcomePage(id: widget.id),
                           ),
                         );
                       },
@@ -129,7 +131,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignUpScreen(),
+                              builder: (context) => SignUpScreen(id: widget.id),
                             ),
                           );
                         },

@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:food_project_app/models/ameals_model.dart';
 import 'package:food_project_app/sign_in_screen.dart';
+
 import 'favorite_page.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
+  const ProfilePage({super.key, required this.id});
+  final int id;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Profile')),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Added padding
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 12.0,
+          ), // Added padding
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +41,10 @@ class ProfilePage extends StatelessWidget {
                     children: const [
                       Text(
                         "A. Blessing",
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text("@blessing22"),
                     ],
@@ -44,39 +52,22 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
 
-               SizedBox(height: 20),
-               Divider(indent: 30, endIndent: 30),
-               SizedBox(height: 20),
+              SizedBox(height: 20),
+              Divider(indent: 30, endIndent: 30),
+              SizedBox(height: 20),
 
-               MyProfile(
-                leading: Icon(Icons.favorite),
-                title: "Favorites",
-                trailing: Icon(Icons.arrow_forward_ios, size: 12),
-              ),
-
-
-               NoClicks(
-                leading: Icon(Icons.person),
-                title: "Ayodele Blessing",
-              ),
-              NoClicks(
-                leading: Icon(Icons.language),
-                title: "English/Yoruba",
-              ),
-              NoClicks(
-                leading: Icon(Icons.email),
-                title: "@ayodeleblessing",
-              ),
-              NoClicks(
-                leading: Icon(Icons.call),
-                title: "+234 906 6117 025",
-              ),
+              NoClicks(leading: Icon(Icons.person), title: "Ayodele Blessing"),
+              NoClicks(leading: Icon(Icons.language), title: "English/Yoruba"),
+              NoClicks(leading: Icon(Icons.email), title: "@ayodeleblessing"),
+              NoClicks(leading: Icon(Icons.call), title: "+234 906 6117 025"),
 
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SignInScreen()),
+                    MaterialPageRoute(
+                      builder: (context) => SignInScreen(id: id),
+                    ),
                   );
                 },
                 child: const NoClicks(
@@ -84,7 +75,6 @@ class ProfilePage extends StatelessWidget {
                   title: "Logout",
                 ),
               ),
-
             ],
           ),
         ),
@@ -97,25 +87,31 @@ class MyProfile extends StatelessWidget {
   final Icon leading;
   final String title;
   final Icon trailing;
-
+  final int id;
   const MyProfile({
     Key? key,
     required this.leading,
     required this.title,
     required this.trailing,
+    required this.id,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const FavoritePage()));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) =>
+                    FavoritePage(id: id, aMealRecipeModel: AMealRecipeModel()),
+          ),
+        );
       },
       child: Card(
         elevation: 1,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: ListTile(
           leading: leading,
           title: Text(title),
@@ -130,23 +126,15 @@ class NoClicks extends StatelessWidget {
   final Icon leading;
   final String title;
 
-  const NoClicks({
-    Key? key,
-    required this.leading,
-    required this.title,
-  }) : super(key: key);
+  const NoClicks({Key? key, required this.leading, required this.title})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 1,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: ListTile(
-        leading: leading,
-        title: Text(title),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: ListTile(leading: leading, title: Text(title)),
     );
   }
 }

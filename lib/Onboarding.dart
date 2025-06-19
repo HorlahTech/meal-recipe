@@ -1,9 +1,10 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:food_project_app/sign_in_screen.dart';
 
 class Onboarding extends StatefulWidget {
-  const Onboarding({super.key});
-
+  const Onboarding({super.key, required this.id});
+  final int id;
   @override
   State<Onboarding> createState() => _OnboardingState();
 }
@@ -34,17 +35,24 @@ class _OnboardingState extends State<Onboarding> {
                     "Welcome to",
                     style: TextStyle(fontSize: 27, color: Colors.white),
                   ),
-                  Text(
-                    'CravingS',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green.shade700,
+                  SizedBox(
+                    height: 50,
+                    child: DefaultTextStyle(
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green.shade700,
+                      ),
+                      child: AnimatedTextKit(
+                        animatedTexts: [WavyAnimatedText('CravingS')],
+                        //  isRepeatingCursorAnimation: true,
+                        repeatForever: true,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 19),
+                  SizedBox(height: 15),
                   Text(
-                    "At Craves, we don’t just satisfy hunger — we ignite passion. Every bite is a journey into flavor, crafted to awaken your deepest cravings",
+                    "Where every craving meets a recipe, and every recipe brings you closer to the joy of cooking from the heart. ",
                     style: TextStyle(fontSize: 22, color: Colors.white),
                   ),
                   SizedBox(height: 30),
@@ -65,7 +73,8 @@ class _OnboardingState extends State<Onboarding> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SignInScreen(),
+                                builder:
+                                    (context) => SignInScreen(id: widget.id),
                               ),
                             );
                           },
